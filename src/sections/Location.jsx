@@ -6,12 +6,12 @@ import SectionTitle from '../components/SectionTitle'
 import { MapPin } from 'lucide-react'
 
 const nearbyServices = [
-  { icon: '🛒', title: 'مراكز التسوق', desc: 'مول الخبر الشمالي على بُعد ٥ دقائق' },
-  { icon: '🏥', title: 'المستشفيات', desc: 'مستشفى السعودي الألماني بالقرب منك' },
+  { icon: '🛒', title: 'مراكز التسوق', desc: 'مول الخبر على بُعد 11 دقيقة' },
+  { icon: '🏥', title: 'المستشفى', desc: 'مباشرة أمام المستشفى، بموقع مميز وسهل الوصول.'  },
   { icon: '🏫', title: 'المدارس', desc: 'أفضل المدارس الدولية في محيط المشروع' },
   { icon: '🕌', title: 'المساجد', desc: 'عدة مساجد داخل الحي في مسافة قريبة' },
-  { icon: '🌊', title: 'الكورنيش', desc: 'كورنيش الخبر على بُعد ١٠ دقائق سيارة' },
-  { icon: '✈️', title: 'المطار', desc: 'مطار الدمام الدولي على بُعد ٢٥ دقيقة' },
+  { icon: '🌊', title: 'الكورنيش', desc: 'كورنيش الخبر على بُعد 7 دقائق سيارة' },
+  { icon: '✈️', title: 'المطار', desc: 'مطار الدمام الدولي على بُعد 40 دقيقة' },
 ]
 
 // Approximate coords for Al Rakah, Al Khobar
@@ -21,7 +21,7 @@ const MAP_LNG = 50.1583
 export default function Location() {
   const { ref, isInView } = useScrollAnimation()
 
-  const mapSrc = `https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3580.7!2d${MAP_LNG}!3d${MAP_LAT}!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjbCsDE4JzAwLjciTiA1MMKwMDknMjkuOSJF!5e0!3m2!1sar!2ssa!4v1680000000000!5m2!1sar!2ssa`
+ const mapSrc = `https://maps.google.com/maps?q=26.35122785547548,50.20700881277218&z=15&output=embed`;
 
   return (
     <section id="location" className="py-24 sm:py-32 bg-[#FFF8F0] relative overflow-hidden">
@@ -36,7 +36,7 @@ export default function Location() {
         >
           <SectionTitle
             eyebrow="الموقع"
-            title="في قلب الرقة، الخبر"
+            title="في قلب الراكة، الخبر"
             subtitle="موقع استراتيجي يمنحك سهولة الوصول إلى كافة الخدمات والمرافق الضرورية"
           />
 
@@ -59,7 +59,7 @@ export default function Location() {
               <div className="absolute -bottom-4 right-6 glass-dark flex items-center gap-2.5 px-4 py-3 rounded-2xl shadow-xl">
                 <MapPin size={16} className="text-gold-400 flex-shrink-0" />
                 <div>
-                  <div className="text-white text-sm font-bold leading-tight">حي الرقة، الخبر</div>
+                  <div className="text-white text-sm font-bold leading-tight">حي الراكة، الخبر</div>
                   <div className="text-stone-400 text-xs">المنطقة الشرقية، المملكة العربية السعودية</div>
                 </div>
               </div>

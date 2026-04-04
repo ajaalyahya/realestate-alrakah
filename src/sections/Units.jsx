@@ -3,42 +3,39 @@ import { motion } from 'framer-motion'
 import { useScrollAnimation } from '../hooks/useScrollAnimation'
 import { staggerContainer, fadeInUp, scaleIn } from '../utils/animations'
 import SectionTitle from '../components/SectionTitle'
+import rakSal from '../../src/assets/images/rakSal.png'
+import rakBed from '../../src/assets/images/rakBed.png'
+import rakKat from '../../src/assets/images/rakKit.png'
 
 const units = [
   {
     id: 'studio',
-    type: 'استوديو',
-    area: '٤٥ م²',
-    price: 'ابتداءً من ٢٨٠,٠٠٠ ر.س',
-    badge: 'مناسب للعزاب',
+    type: 'صالة المعيشة',
+    badge: 'مساحة رحبة',
     badgeColor: 'bg-blue-500/20 text-blue-300 border-blue-500/30',
-    desc: 'وحدة عصرية مدمجة بتصميم ذكي يستغل المساحة بشكل أمثل، مثالية للأفراد والمهنيين.',
-    features: ['تشطيب كامل', 'مطبخ مجهز', 'حمام فاخر', 'نافذة بانورامية'],
-    img: 'https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=700&q=75',
+    desc: ' مساحة واسعة بتصميم عصري وإضاءة مريحة.',
+    features: [' توزيع عملي وسهل التأثيث', 'أرضيات سيراميك أنيقة', 'إضاءة طبيعية جيدة', 'نافذة بانورامية'],
+    img: rakSal,
     available: 8,
   },
   {
     id: 'one-bedroom',
-    type: 'غرفة وصالة',
-    area: '٧٥ م²',
-    price: 'ابتداءً من ٤٢٠,٠٠٠ ر.س',
-    badge: 'الأكثر طلباً',
+    type: 'مطبخ مستقل ',
+    badge: 'مطبخ عملي',
     badgeColor: 'bg-gold-500/20 text-gold-300 border-gold-500/30',
-    desc: 'تصميم عائلي مريح يمنحك الخصوصية والرحابة في نفس الوقت، مناسب للأزواج.',
-    features: ['غرفة نوم رئيسية', 'صالة واسعة', 'مطبخ مفتوح', 'تراس خاص'],
-    img: 'https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=700&q=75',
+    desc: 'مطبخ حديث بتصميم عملي يناسب الاستخدام اليومي. ',
+    features: ['مساحات تخزين مناسبة', 'توزيع مريح للحركة', 'مطبخ مفتوح', 'سهل التنظيف والصيانة'],
+    img: rakKat,
     available: 12,
   },
   {
     id: 'two-bedroom',
-    type: 'غرفتان وصالة',
-    area: '١١٠ م²',
-    price: 'ابتداءً من ٥٩٠,٠٠٠ ر.س',
-    badge: 'مساحة عائلية',
+    type: 'غرفة النوم',
+    badge: 'هدوء واسترخاء',
     badgeColor: 'bg-green-500/20 text-green-300 border-green-500/30',
-    desc: 'وحدة فسيحة ومثالية للعائلات الصغيرة، توفر مساحة كافية للراحة والخصوصية.',
-    features: ['غرفتا نوم', 'صالة كبيرة', 'غرفة خادمة', 'مطبخ مستقل'],
-    img: 'https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=700&q=75',
+    desc: 'غرفة مريحة بتصميم مودرن توفر أجواء هادئة.',
+    features: ['مساحة مناسبة للاثاث', 'قابلة لتنسيق تسريحة وخزائن ', 'إضاءة جيدة وتهوية مناسبة '],
+    img: rakBed,
     available: 6,
   },
 ]
@@ -81,14 +78,10 @@ function UnitCard({ unit, index }) {
       <div className="p-6 flex flex-col flex-1">
         <div className="flex items-start justify-between mb-3">
           <div>
-            <h3 className="text-xl font-black text-white group-hover:text-gold-400 transition-colors">
+            <h3 className="text-xl font-black text-[#4B2E2B] group-hover:text-gold-400 transition-colors">
               {unit.type}
             </h3>
             <p className="text-gold-400 font-bold text-base mt-0.5">{unit.area}</p>
-          </div>
-          <div className="text-right">
-            <div className="text-xs text-stone-500 mb-0.5">السعر</div>
-            <div className="text-sm font-bold text-white leading-tight">{unit.price}</div>
           </div>
         </div>
 
@@ -105,12 +98,7 @@ function UnitCard({ unit, index }) {
         </div>
 
         {/* CTA */}
-        <button
-          onClick={() => document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' })}
-          className="w-full bg-gold-500/10 hover:bg-gold-500 text-gold-400 hover:text-stone-950 border border-gold-500/30 hover:border-gold-500 font-bold text-sm py-3 rounded-2xl transition-all duration-300"
-        >
-          استفسر عن هذه الوحدة
-        </button>
+        
       </div>
     </motion.div>
   )
@@ -133,7 +121,7 @@ export default function Units() {
           <SectionTitle
             eyebrow="الوحدات السكنية"
             title="اختر وحدتك المثالية"
-            subtitle="نوفر تشكيلة متنوعة من الوحدات السكنية تناسب مختلف الاحتياجات والميزانيات"
+            subtitle="تفاصيل مدروسة وتصاميم عصرية تمنحك تجربة سكن مريحة وعملية في كل زاوية"
           />
         </motion.div>
 
@@ -144,12 +132,17 @@ export default function Units() {
         </div>
 
         {/* Bottom note */}
+        <button
+          onClick={() => document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' })}
+          className="block mx-auto mt-6 px-6 py-3 bg-gold-500/10 hover:bg-gold-500 text-gold-400 hover:text-stone-950 border border-gold-500/30 hover:border-gold-500 font-bold text-sm rounded-2xl transition-all duration-300"        >
+          استفسر عن الوحدات السكنية
+        </button>
         <motion.p
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ delay: 0.4 }}
-          className="text-center text-stone-500 text-sm mt-10"
+          className="text-center text-stone-500 text-sm mt-6"
         >
           * الأسعار قابلة للتفاوض • تواصل معنا للحصول على أفضل عرض
         </motion.p>

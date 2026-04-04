@@ -5,6 +5,11 @@ import { staggerContainer, fadeInUp, scaleIn } from '../utils/animations'
 import SectionTitle from '../components/SectionTitle'
 import { Send, CheckCircle, AlertCircle } from 'lucide-react'
 
+// ⬇️ حط بياناتك هنا
+const EMAILJS_SERVICE_ID  = 'service_ig8k8el'
+const EMAILJS_TEMPLATE_ID = 'template_3jgluc8'
+const EMAILJS_PUBLIC_KEY  = 'L-e4EERbJiZL_VMww'
+
 const unitOptions = [
   { value: '', label: 'اختر نوع الوحدة' },
   { value: 'studio', label: 'استوديو' },
@@ -232,8 +237,7 @@ export default function Contact() {
                   {[
                     { icon: '📞', label: 'هاتف', value: '+966 53 411 8777', href: 'tel:+966500000000' },
                     { icon: '📱', label: 'واتساب', value: '+966 53 411 8777', href: 'https://wa.me/966500000000' },
-                    { icon: '📧', label: 'البريد الإلكتروني', value: 'info@alraki-tower.sa', href: 'mailto:info@alraki-tower.sa' },
-                    { icon: '📍', label: 'العنوان', value: 'حي الرقة، الخبر، المنطقة الشرقية', href: null },
+                    { icon: '📍', label: 'العنوان', value: 'حي الراكة، الخبر، المنطقة الشرقية', href: null },
                   ].map((item) => (
                     <div key={item.label} className="flex items-start gap-3">
                       <span className="text-xl flex-shrink-0 mt-0.5">{item.icon}</span>
@@ -258,7 +262,6 @@ export default function Contact() {
                 <div className="space-y-2">
                   {[
                     { days: 'السبت – الخميس', time: '٩:٠٠ ص – ٩:٠٠ م' },
-                    { days: 'الجمعة', time: '٤:٠٠ م – ٩:٠٠ م' },
                   ].map((row) => (
                     <div key={row.days} className="flex justify-between text-sm">
                       <span className="text-stone-400">{row.days}</span>
@@ -270,7 +273,7 @@ export default function Contact() {
 
               {/* WhatsApp quick CTA */}
               <a
-                href="https://wa.me/966500000000?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85+%D8%B9%D9%84%D9%8A%D9%83%D9%85"
+                href="https://wa.me/966534118777?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85+%D8%B9%D9%84%D9%8A%D9%83%D9%85"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center justify-center gap-2.5 bg-green-600/90 hover:bg-green-500 text-white font-bold py-4 rounded-3xl transition-all duration-300 hover:shadow-lg hover:shadow-green-600/30"

@@ -42,7 +42,7 @@ export default function Navbar() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 flex items-center justify-between">
           {/* Logo */}
           <a href="#hero" onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }) }} className="flex flex-col items-center">
-            <span className="text-2xl font-black text-[#C08552] leading-none">عمارة الراكة</span>
+            <span className="text-2xl font-black text-[#C08552] leading-none">شقق اليحيى</span>
             <span className="text-[10px] text-white tracking-widest mt-0.5">الراكة • الخبر</span>
           </a>
 
@@ -63,7 +63,7 @@ export default function Navbar() {
           <div className="hidden lg:flex items-center gap-3">
             <a
               href="tel:+966500000000"
-              className="flex items-center gap-2 text-sm text-[#C08552] font-semibold hover:text-gold-300 transition-colors"
+              className="flex items-center gap-2 text-sm text-white font-semibold hover:text-gold-300 transition-colors"
             >
               <Phone size={15} />
               <span>8777 411 53 966+</span>

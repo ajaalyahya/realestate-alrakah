@@ -83,8 +83,8 @@ export default function Hero({ whatsappNumber, whatsappMessage }) {
           transition={{ duration: 0.9, delay: 0.4, ease: [0.22, 1, 0.36, 1] }}
           className="text-5xl sm:text-7xl lg:text-8xl font-black leading-none mb-4"
         >
-          <span className="text-white">عمارة</span>{' '}
-          <span className="text-[#C08552]">الراكة</span>
+          <span className="text-white">شقق</span>{' '}
+          <span className="text-[#C08552]">اليحيى</span>
         </motion.h1>
 
         {/* Subtitle */}
@@ -113,8 +113,8 @@ export default function Hero({ whatsappNumber, whatsappMessage }) {
           className="flex justify-center gap-8 mb-10"
         >
           {[
-            { value: '٣٦', label: 'وحدة سكنية' },
-            { value: '٨', label: 'طوابق' },
+            { value: '20', label: 'وحدة سكنية' },
+            { value: '4', label: 'طوابق' },
             { value: '١٠٠٪', label: 'تشطيب فاخر' },
           ].map((stat) => (
             <div key={stat.label} className="text-center">
@@ -133,7 +133,7 @@ export default function Hero({ whatsappNumber, whatsappMessage }) {
         >
           <button
             onClick={() => document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' })}
-            className="w-full sm:w-auto bg-[#4B2E2B] hover:bg-gold-400 text-white font-black text-base px-8 py-4 rounded-full transition-all duration-300 hover:shadow-2xl hover:shadow-gold-500/40 hover:-translate-y-0.5 active:scale-95"
+            className="w-full sm:w-auto bg-[#4B2E2B] text-white hover:bg-white hover:text-[#4B2E2B] font-black text-base px-8 py-4 rounded-full transition-all duration-300 hover:shadow-2xl hover:shadow-gold-500/40 hover:-translate-y-0.5 active:scale-95"
           >
             احجز الآن
           </button>

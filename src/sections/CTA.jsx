@@ -39,7 +39,7 @@ export default function CTA({ whatsappNumber, whatsappMessage }) {
             <span className="text-white">ابدأ حياتك </span>
             <span className="text-[#C08552]">الفاخرة</span>
             <br />
-            <span className="text-white">في برج الراقي</span>
+            <span className="text-white">في شقق اليحيى </span>
           </motion.h2>
 
           <motion.p variants={fadeInUp} className="text-lg sm:text-xl text-stone-400 max-w-2xl mx-auto mb-4 leading-relaxed">

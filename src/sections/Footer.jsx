@@ -34,7 +34,7 @@ export default function Footer() {
           {/* Brand */}
           <motion.div variants={fadeInUp} className="lg:col-span-1">
             <div className="mb-4">
-              <span className="text-3xl font-black text-[#C08552]">عمارة الراكة</span>
+              <span className="text-3xl font-black text-[#C08552]">شقق اليحيى</span>
               <div className="text-xs text-stone-500 tracking-widest mt-1">الراكة • الخبر</div>
             </div>
             <p className="text-stone-500 text-sm leading-relaxed mb-5">

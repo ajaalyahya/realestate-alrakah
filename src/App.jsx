@@ -14,7 +14,7 @@ const Contact   = lazy(() => import('./sections/Contact'))
 const CTA       = lazy(() => import('./sections/CTA'))
 const Footer    = lazy(() => import('./sections/Footer'))
 
-const WHATSAPP_NUMBER = '966500000000'
+const WHATSAPP_NUMBER = '966534118777'
 const WHATSAPP_MESSAGE = encodeURIComponent('السلام عليكم، أود الاستفسار عن وحدات برج الراقي في الرقة، الخبر.')
 
 export default function App() {

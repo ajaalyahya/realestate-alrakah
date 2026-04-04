@@ -3,15 +3,14 @@ import { motion } from 'framer-motion'
 import { useScrollAnimation } from '../hooks/useScrollAnimation'
 import { staggerContainer, fadeInUp, scaleIn } from '../utils/animations'
 import SectionTitle from '../components/SectionTitle'
+import ABOUT_IMG from "../assets/images/rakah1.jpeg"
 
 const highlights = [
   { icon: '🏙️', label: 'موقع استراتيجي', desc: 'في قلب الرقة بالخبر' },
-  { icon: '✨', label: 'تشطيب فاخر', desc: 'مواد عالية الجودة' },
-  { icon: '🔐', label: 'أمان على مدار الساعة', desc: 'كاميرات وحراسة ٢٤/٧' },
+  { icon: '🏥', label: 'قريب من مستشفى دلة', desc: 'مباشرة أمام المستشفى، بموقع مميز وسهل الوصول.' },
   { icon: '🌿', label: 'بيئة هادئة', desc: 'مناطق خضراء ومريحة' },
+  { icon: '✨', label: 'تشطيب فاخر', desc: 'مواد عالية الجودة' },
 ]
-
-const ABOUT_IMG = 'https://images.unsplash.com/photo-1486325212027-8081e485255e?w=900&q=80'
 
 export default function About() {
   const { ref, isInView } = useScrollAnimation()
@@ -48,8 +47,8 @@ export default function About() {
               transition={{ delay: 0.5, type: 'spring' }}
               className="absolute -bottom-6 -right-4 sm:-right-8 glass-dark rounded-2xl p-5 shadow-2xl"
             >
-              <div className="text-3xl font-black text-gold-400">٢٠٢٥</div>
-              <div className="text-sm text-stone-400 mt-1">سنة التسليم</div>
+              <div className="text-3xl font-black text-gold-400">100%</div>
+              <div className="text-sm text-stone-400 mt-1">تشطيب فاخر </div>
             </motion.div>
             <motion.div
               initial={{ opacity: 0, scale: 0.8 }}
@@ -57,7 +56,7 @@ export default function About() {
               transition={{ delay: 0.65, type: 'spring' }}
               className="absolute -top-4 -left-4 sm:-left-8 glass-dark rounded-2xl p-4 shadow-2xl"
             >
-              <div className="text-2xl font-black text-gold-400">٣٦</div>
+              <div className="text-2xl font-black text-gold-400">20</div>
               <div className="text-xs text-stone-400">وحدة سكنية</div>
             </motion.div>
           </motion.div>
@@ -66,12 +65,12 @@ export default function About() {
           <div className="order-1 lg:order-2">
             <SectionTitle
               eyebrow="عن المشروع"
-              title="عمارة الراكة"
+              title="شقق اليحيى"
               subtitle={null}
               className="text-blue"
             />
             <motion.p variants={fadeInUp} className="text-[#4B2E2B] text-base sm:text-lg leading-relaxed mb-6">
-              عمارة الراكة مشروع سكني فاخر يقع في حي الراكة بمدينة الخبر، واحد من أكثر الأحياء حيوية وتطوراً في المنطقة الشرقية. يجمع المشروع بين التصميم العصري والتشطيبات الراقية، ليوفر لسكانه تجربة معيشية استثنائية.
+              شقق اليحيى مشروع سكني فاخر يقع في حي الراكة بمدينة الخبر، واحد من أكثر الأحياء حيوية وتطوراً في المنطقة الشرقية. يجمع المشروع بين التصميم العصري والتشطيبات الراقية، ليوفر لسكانه تجربة معيشية استثنائية.
             </motion.p>
             <motion.p variants={fadeInUp} className="text-stone-400 text-base leading-relaxed mb-10">
               يتميز المشروع بموقعه الاستراتيجي قرب المراكز التجارية والخدمية، مع سهولة الوصول إلى الطرق الرئيسية. كل وحدة مصممة بعناية لتوفر أقصى درجات الراحة والخصوصية.

@@ -5,46 +5,53 @@ import { staggerContainer, fadeInUp } from '../utils/animations'
 import SectionTitle from '../components/SectionTitle'
 import { X, ChevronLeft, ChevronRight, ZoomIn } from 'lucide-react'
 
+import rakSal from '../../src/assets/images/rakSal.png'
+import rakBed from '../../src/assets/images/rakBed.png'
+import rakKit from '../../src/assets/images/rakKit.png'
+import rakTol from '../../src/assets/images/rakTol.png'
+import rakEnt from '../../src/assets/images/rakEnt.png'
+import HERO_IMG from '../assets/images/rakah1.jpeg'
+
 const galleryImages = [
   {
     id: 1,
-    src: 'https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=900&q=80',
-    thumb: 'https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=500&q=70',
+    src: HERO_IMG,
+    thumb: HERO_IMG,
     caption: 'الواجهة الخارجية للمشروع',
     span: 'col-span-2 row-span-2',
   },
   {
     id: 2,
-    src: 'https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=900&q=80',
-    thumb: 'https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=500&q=70',
+    src: rakSal,
+    thumb: rakSal,
     caption: 'غرفة المعيشة',
     span: '',
   },
   {
     id: 3,
-    src: 'https://images.unsplash.com/photo-1484154218962-a197022b5858?w=900&q=80',
-    thumb: 'https://images.unsplash.com/photo-1484154218962-a197022b5858?w=500&q=70',
+    src: rakKit,
+    thumb: rakKit,
     caption: 'المطبخ المجهز',
     span: '',
   },
   {
     id: 4,
-    src: 'https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=900&q=80',
-    thumb: 'https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=500&q=70',
+    src: rakBed,
+    thumb: rakBed,
     caption: 'غرفة النوم الرئيسية',
     span: '',
   },
   {
     id: 5,
-    src: 'https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?w=900&q=80',
-    thumb: 'https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?w=500&q=70',
+    src: rakTol,
+    thumb: rakTol,
     caption: 'الحمام الفاخر',
     span: '',
   },
   {
     id: 6,
-    src: 'https://images.unsplash.com/photo-1486325212027-8081e485255e?w=900&q=80',
-    thumb: 'https://images.unsplash.com/photo-1486325212027-8081e485255e?w=500&q=70',
+    src: rakEnt,
+    thumb: rakEnt,
     caption: 'المدخل الرئيسي',
     span: 'col-span-2',
   },
