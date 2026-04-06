@@ -3,18 +3,20 @@ import { motion } from 'framer-motion'
 import { useScrollAnimation } from '../hooks/useScrollAnimation'
 import { staggerContainer, fadeInUp } from '../utils/animations'
 import SectionTitle from '../components/SectionTitle'
-
-const features = [
-  { icon: '📍', title: 'موقع مميز', desc: 'قلب حي الرقة بالخبر بالقرب من كافة الخدمات والمرافق العامة' },
-  { icon: '🏥', title: 'قريب من مستشفى دلة', desc: 'مباشرة أمام المستشفى، بموقع مميز وسهل الوصول.' },
-  { icon: '🅿️', title: 'مواقف سيارات', desc: 'مواقف مغطاة وآمنة لجميع السكان مع خاصية الدخول الآلي' },
-  { icon: '🛗', title: 'مصاعد حديثة', desc: 'مصاعدان عالي الجودة يعملان على مدار الساعة بأعلى معايير الأمان' },
-  { icon: '💧', title: 'خزانات مياه', desc: 'نظام تخزين مياه متطور يضمن إمداداً مستمراً وآمناً' },
-  { icon: '🌡️', title: 'تكييف مركزي', desc: 'نظام تبريد مركزي موفر للطاقة بكفاءة عالية' },
-]
+import { useLanguage } from '../context/LanguageContext'
 
 export default function Features() {
   const { ref, isInView } = useScrollAnimation()
+  const { t } = useLanguage()
+
+  const features = [
+    { icon: '📍', title: t('features.f1_title'), desc: t('features.f1_desc') },
+    { icon: '🏥', title: t('features.f2_title'), desc: t('features.f2_desc') },
+    { icon: '🅿️', title: t('features.f3_title'), desc: t('features.f3_desc') },
+    { icon: '🛗', title: t('features.f4_title'), desc: t('features.f4_desc') },
+    { icon: '💧', title: t('features.f5_title'), desc: t('features.f5_desc') },
+    { icon: '🌡️', title: t('features.f6_title'), desc: t('features.f6_desc') },
+  ]
 
   return (
     <section id="features" className="py-24 sm:py-32 bg-[#ECE7D1] relative overflow-hidden">
@@ -28,9 +30,9 @@ export default function Features() {
           animate={isInView ? 'visible' : 'hidden'}
         >
           <SectionTitle
-            eyebrow="مميزات المشروع"
-            title="كل ما تحتاجه في مكان واحد"
-            subtitle="وفرنا لك كل التسهيلات والمرافق التي تجعل حياتك اليومية أكثر راحة وأماناً"
+            eyebrow={t('features.eyebrow')}
+            title={t('features.title')}
+            subtitle={t('features.subtitle')}
           />
 
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-5">

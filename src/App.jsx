@@ -4,6 +4,8 @@ import Hero from './sections/Hero'
 import FloatingWhatsApp from './components/FloatingWhatsApp'
 import LoadingSpinner from './components/LoadingSpinner'
 
+import { useLanguage } from './context/LanguageContext'
+
 // Lazy load below-fold sections for performance
 const About     = lazy(() => import('./sections/About'))
 const Features  = lazy(() => import('./sections/Features'))
@@ -15,11 +17,13 @@ const CTA       = lazy(() => import('./sections/CTA'))
 const Footer    = lazy(() => import('./sections/Footer'))
 
 const WHATSAPP_NUMBER = '966534118777'
-const WHATSAPP_MESSAGE = encodeURIComponent('السلام عليكم، أود الاستفسار عن وحدات برج الراقي في الرقة، الخبر.')
 
 export default function App() {
+  const { t, language } = useLanguage()
+  const WHATSAPP_MESSAGE = encodeURIComponent(t('global.whatsapp_message'))
+  
   return (
-    <div className="min-h-screen font-cairo" dir="rtl">
+    <div className="min-h-screen font-cairo" dir={language === 'ar' ? 'rtl' : 'ltr'}>
       <Navbar />
       <Hero whatsappNumber={WHATSAPP_NUMBER} whatsappMessage={WHATSAPP_MESSAGE} />
       <Suspense fallback={<LoadingSpinner />}>

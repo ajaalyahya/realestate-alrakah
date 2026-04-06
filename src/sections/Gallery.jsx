@@ -4,6 +4,7 @@ import { useScrollAnimation } from '../hooks/useScrollAnimation'
 import { staggerContainer, fadeInUp } from '../utils/animations'
 import SectionTitle from '../components/SectionTitle'
 import { X, ChevronLeft, ChevronRight, ZoomIn } from 'lucide-react'
+import { useLanguage } from '../context/LanguageContext'
 
 import rakSal from '../../src/assets/images/rakSal.png'
 import rakBed from '../../src/assets/images/rakBed.png'
@@ -12,57 +13,57 @@ import rakTol from '../../src/assets/images/rakTol.png'
 import rakEnt from '../../src/assets/images/rakEnt.png'
 import HERO_IMG from '../assets/images/rakah1.jpeg'
 
-const galleryImages = [
+const getGalleryImages = (t) => [
   {
     id: 1,
     src: HERO_IMG,
     thumb: HERO_IMG,
-    caption: 'الواجهة الخارجية للمشروع',
+    caption: t('gallery.c1'),
     span: 'col-span-2 row-span-2',
   },
   {
     id: 2,
     src: rakSal,
     thumb: rakSal,
-    caption: 'غرفة المعيشة',
+    caption: t('gallery.c2'),
     span: '',
   },
   {
     id: 3,
     src: rakKit,
     thumb: rakKit,
-    caption: 'المطبخ المجهز',
+    caption: t('gallery.c3'),
     span: '',
   },
   {
     id: 4,
     src: rakBed,
     thumb: rakBed,
-    caption: 'غرفة النوم الرئيسية',
+    caption: t('gallery.c4'),
     span: '',
   },
   {
     id: 5,
     src: rakTol,
     thumb: rakTol,
-    caption: 'الحمام الفاخر',
+    caption: t('gallery.c5'),
     span: '',
   },
   {
     id: 6,
     src: rakEnt,
     thumb: rakEnt,
-    caption: 'المدخل الرئيسي',
+    caption: t('gallery.c6'),
     span: 'col-span-2',
   },
 ]
 
-function Lightbox({ images, currentIndex, onClose, onPrev, onNext }) {
+function Lightbox({ images, currentIndex, onClose, onPrev, onNext, isRtl }) {
   useEffect(() => {
     const handleKey = (e) => {
       if (e.key === 'Escape') onClose()
-      if (e.key === 'ArrowLeft') onNext()
-      if (e.key === 'ArrowRight') onPrev()
+      if (e.key === 'ArrowLeft') isRtl ? onNext() : onPrev()
+      if (e.key === 'ArrowRight') isRtl ? onPrev() : onNext()
     }
     document.addEventListener('keydown', handleKey)
     document.body.style.overflow = 'hidden'
@@ -70,9 +71,13 @@ function Lightbox({ images, currentIndex, onClose, onPrev, onNext }) {
       document.removeEventListener('keydown', handleKey)
       document.body.style.overflow = ''
     }
-  }, [onClose, onPrev, onNext])
+  }, [onClose, onPrev, onNext, isRtl])
 
   const image = images[currentIndex]
+
+  // Fix buttons visually for RTL/LTR correctly
+  const RightIcon = isRtl ? ChevronLeft : ChevronRight
+  const LeftIcon = isRtl ? ChevronRight : ChevronLeft
 
   return (
     <motion.div
@@ -87,6 +92,7 @@ function Lightbox({ images, currentIndex, onClose, onPrev, onNext }) {
         onClick={onClose}
         className="absolute top-4 right-4 sm:top-6 sm:right-6 text-white/70 hover:text-white transition-colors z-10 glass rounded-full p-2"
         aria-label="إغلاق"
+        style={{ insetInlineEnd: '1rem', right: 'auto', insetInlineStart: 'auto' }}
       >
         <X size={22} />
       </button>
@@ -96,22 +102,23 @@ function Lightbox({ images, currentIndex, onClose, onPrev, onNext }) {
         {currentIndex + 1} / {images.length}
       </div>
 
-      {/* Prev */}
+      {/* Next/Prev */}
       <button
-        onClick={(e) => { e.stopPropagation(); onPrev() }}
+        onClick={(e) => { e.stopPropagation(); isRtl ? onPrev() : onNext() }}
         className="absolute right-4 sm:right-8 top-1/2 -translate-y-1/2 text-white/70 hover:text-white transition-colors glass rounded-full p-3 z-10"
-        aria-label="السابق"
+        aria-label="Next"
+        style={{ insetInlineEnd: '1rem', right: 'auto', insetInlineStart: 'auto' }}
       >
-        <ChevronRight size={22} />
+        <RightIcon size={22} />
       </button>
 
-      {/* Next */}
       <button
-        onClick={(e) => { e.stopPropagation(); onNext() }}
+        onClick={(e) => { e.stopPropagation(); isRtl ? onNext() : onPrev() }}
         className="absolute left-4 sm:left-8 top-1/2 -translate-y-1/2 text-white/70 hover:text-white transition-colors glass rounded-full p-3 z-10"
-        aria-label="التالي"
+        aria-label="Prev"
+        style={{ insetInlineStart: '1rem', left: 'auto', insetInlineEnd: 'auto' }}
       >
-        <ChevronLeft size={22} />
+        <LeftIcon size={22} />
       </button>
 
       {/* Image */}
@@ -159,11 +166,13 @@ function Lightbox({ images, currentIndex, onClose, onPrev, onNext }) {
 export default function Gallery() {
   const { ref, isInView } = useScrollAnimation()
   const [lightboxIndex, setLightboxIndex] = useState(null)
+  const { t, language } = useLanguage()
+  const galleryImages = getGalleryImages(t)
 
   const openLightbox = useCallback((i) => setLightboxIndex(i), [])
   const closeLightbox = useCallback(() => setLightboxIndex(null), [])
-  const prev = useCallback(() => setLightboxIndex((i) => (i - 1 + galleryImages.length) % galleryImages.length), [])
-  const next = useCallback(() => setLightboxIndex((i) => (i + 1) % galleryImages.length), [])
+  const prev = useCallback(() => setLightboxIndex((i) => (i - 1 + galleryImages.length) % galleryImages.length), [galleryImages.length])
+  const next = useCallback(() => setLightboxIndex((i) => (i + 1) % galleryImages.length), [galleryImages.length])
 
   return (
     <section id="gallery" className="py-24 sm:py-32 bg-[#ECE7D1] relative overflow-hidden">
@@ -175,9 +184,9 @@ export default function Gallery() {
           animate={isInView ? 'visible' : 'hidden'}
         >
           <SectionTitle
-            eyebrow="معرض الصور"
-            title="شاهد المشروع بنفسك"
-            subtitle="استعرض صور المشروع بكل تفاصيله الجمالية والمعمارية"
+            eyebrow={t('gallery.eyebrow')}
+            title={t('gallery.title')}
+            subtitle={t('gallery.subtitle')}
           />
 
           {/* Masonry-style grid */}
@@ -229,6 +238,7 @@ export default function Gallery() {
             onClose={closeLightbox}
             onPrev={prev}
             onNext={next}
+            isRtl={language === 'ar'}
           />
         )}
       </AnimatePresence>

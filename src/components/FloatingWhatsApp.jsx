@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
+import { useLanguage } from '../context/LanguageContext'
 
 export default function FloatingWhatsApp({ number, message }) {
   const [visible, setVisible] = useState(false)
   const [pulse, setPulse] = useState(true)
+  const { t, language } = useLanguage()
 
   useEffect(() => {
     const timer = setTimeout(() => setVisible(true), 2000)
@@ -26,17 +28,17 @@ export default function FloatingWhatsApp({ number, message }) {
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.95 }}
           transition={{ type: 'spring', stiffness: 300, damping: 20 }}
-          className="fixed bottom-6 left-6 z-50 flex items-center gap-3 group"
-          aria-label="تواصل عبر واتساب"
+          className={`fixed bottom-6 z-50 flex items-center gap-3 group ${language === 'ar' ? 'right-6' : 'left-6 flex-row-reverse'}`}
+          aria-label={t('cta.btn_wa')}
         >
           {/* Tooltip */}
           <motion.div
-            initial={{ opacity: 0, x: 10 }}
+            initial={{ opacity: 0, x: language === 'ar' ? -10 : 10 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.5 }}
             className="hidden sm:block glass-dark text-white text-sm font-semibold px-3 py-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap"
           >
-            تواصل واتساب
+            {t('cta.btn_wa')}
           </motion.div>
 
           {/* Button */}

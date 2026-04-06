@@ -1,19 +1,21 @@
 import React, { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { Menu, X, Phone } from 'lucide-react'
-
-const navLinks = [
-  { label: 'عن المشروع', href: '#about' },
-  { label: 'المميزات', href: '#features' },
-  { label: 'الوحدات', href: '#units' },
-  { label: 'معرض الصور', href: '#gallery' },
-  { label: 'الموقع', href: '#location' },
-  { label: 'تواصل معنا', href: '#contact' },
-]
+import { Menu, X, Phone, Globe } from 'lucide-react'
+import { useLanguage } from '../context/LanguageContext'
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false)
   const [menuOpen, setMenuOpen] = useState(false)
+  const { t, language, toggleLanguage } = useLanguage()
+
+  const navLinks = [
+    { label: t('nav.about'), href: '#about' },
+    { label: t('nav.features'), href: '#features' },
+    { label: t('nav.units'), href: '#units' },
+    { label: t('nav.gallery'), href: '#gallery' },
+    { label: t('nav.location'), href: '#location' },
+    { label: t('nav.contact'), href: '#contact' },
+  ]
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 60)
@@ -42,8 +44,8 @@ export default function Navbar() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 flex items-center justify-between">
           {/* Logo */}
           <a href="#hero" onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }) }} className="flex flex-col items-center">
-            <span className="text-2xl font-black text-[#C08552] leading-none">شقق اليحيى</span>
-            <span className="text-[10px] text-white tracking-widest mt-0.5">الراكة • الخبر</span>
+            <span className="text-2xl font-black text-[#C08552] leading-none">{t('nav.logo_title')}</span>
+            <span className="text-[10px] text-white tracking-widest mt-0.5">{t('nav.logo_subtitle')}</span>
           </a>
 
           {/* Desktop Nav */}
@@ -59,31 +61,48 @@ export default function Navbar() {
             ))}
           </nav>
 
-          {/* CTA */}
+          {/* CTA & Lang Toggle */}
           <div className="hidden lg:flex items-center gap-3">
+            <button
+              onClick={toggleLanguage}
+              className="flex items-center gap-1.5 text-sm font-semibold text-stone-200 hover:text-white transition-colors bg-white/5 rounded-full px-3 py-1.5"
+            >
+              <Globe size={16} />
+              <span className="mb-0.5">{language === 'ar' ? 'EN' : 'عربي'}</span>
+            </button>
             <a
               href="tel:+966500000000"
-              className="flex items-center gap-2 text-sm text-white font-semibold hover:text-gold-300 transition-colors"
+              className="flex items-center gap-2 text-sm text-white font-semibold hover:text-gold-300 transition-colors ms-3"
             >
               <Phone size={15} />
-              <span>8777 411 53 966+</span>
+              <span className="dir-ltr inline-block text-left whitespace-nowrap">
+                +966 53 411 8777
+              </span>
             </a>
             <button
               onClick={() => handleNavClick('#contact')}
               className="bg-[#4B2E2B] hover:bg-gold-400 text-white font-bold text-sm px-5 py-2.5 rounded-full transition-all duration-200 hover:shadow-lg hover:shadow-gold-500/30"
             >
-              احجز الآن
+              {t('nav.book_now')}
             </button>
           </div>
 
-          {/* Mobile hamburger */}
-          <button
-            onClick={() => setMenuOpen(!menuOpen)}
-            className="lg:hidden text-stone-300 hover:text-gold-400 transition-colors p-1"
-            aria-label="القائمة"
-          >
-            {menuOpen ? <X size={24} /> : <Menu size={24} />}
-          </button>
+          {/* Mobile controls */}
+          <div className="flex lg:hidden items-center gap-3">
+            <button
+              onClick={toggleLanguage}
+              className="text-sm font-bold text-stone-300 hover:text-white transition-colors"
+            >
+              {language === 'ar' ? 'EN' : 'عربي'}
+            </button>
+            <button
+              onClick={() => setMenuOpen(!menuOpen)}
+              className="text-stone-300 hover:text-gold-400 transition-colors p-1"
+              aria-label="Toggle Menu"
+            >
+              {menuOpen ? <X size={24} /> : <Menu size={24} />}
+            </button>
+          </div>
         </div>
       </motion.header>
 
@@ -102,16 +121,25 @@ export default function Navbar() {
                 <button
                   key={link.href}
                   onClick={() => handleNavClick(link.href)}
-                  className="text-right text-base text-stone-300 hover:text-gold-400 font-medium py-3 border-b border-white/5 transition-colors"
+                  className="text-start text-base text-stone-300 hover:text-gold-400 font-medium py-3 border-b border-white/5 transition-colors"
                 >
                   {link.label}
                 </button>
               ))}
+              <a
+                href="tel:+966500000000"
+                className="flex items-center gap-2 text-base text-white font-semibold py-3 border-b border-white/5 transition-colors"
+              >
+                <Phone size={16} className="text-gold-400" />
+                <span className="dir-ltr text-left">
+                  +966 53 411 8777
+                </span>
+              </a>
               <button
                 onClick={() => handleNavClick('#contact')}
-                className="mt-4 bg-gold-500 text-stone-950 font-bold text-base px-5 py-3 rounded-full"
+                className="mt-4 bg-gold-500 text-stone-950 font-bold text-base px-5 py-3 rounded-full w-full"
               >
-                احجز الآن
+                {t('nav.book_now')}
               </button>
             </nav>
           </motion.div>

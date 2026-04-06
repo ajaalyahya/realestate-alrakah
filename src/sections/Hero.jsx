@@ -2,9 +2,11 @@ import React, { useEffect, useRef } from 'react'
 import { motion } from 'framer-motion'
 import { ChevronDown } from 'lucide-react'
 import HERO_IMG from '../assets/images/rakah1.jpeg'
+import { useLanguage } from '../context/LanguageContext'
 
 export default function Hero({ whatsappNumber, whatsappMessage }) {
   const parallaxRef = useRef(null)
+  const { t } = useLanguage()
 
   useEffect(() => {
     const handleScroll = () => {
@@ -71,7 +73,7 @@ export default function Hero({ whatsappNumber, whatsappMessage }) {
         >
           <div className="h-px w-8 bg-gold-400" />
           <span className="text-white text-xs font-bold tracking-[0.3em] uppercase">
-            الراكة • الخبر 
+            {t('hero.eyebrow')}
           </span>
           <div className="h-px w-8 bg-gold-400" />
         </motion.div>
@@ -83,8 +85,8 @@ export default function Hero({ whatsappNumber, whatsappMessage }) {
           transition={{ duration: 0.9, delay: 0.4, ease: [0.22, 1, 0.36, 1] }}
           className="text-5xl sm:text-7xl lg:text-8xl font-black leading-none mb-4"
         >
-          <span className="text-white">شقق</span>{' '}
-          <span className="text-[#C08552]">اليحيى</span>
+          <span className="text-white">{t('hero.title1')}</span>{' '}
+          <span className="text-[#C08552]">{t('hero.title2')}</span>
         </motion.h1>
 
         {/* Subtitle */}
@@ -94,7 +96,7 @@ export default function Hero({ whatsappNumber, whatsappMessage }) {
           transition={{ duration: 0.8, delay: 0.6 }}
           className="text-lg sm:text-2xl text-stone-100 font-medium mb-3"
         >
-          حيث تلتقي الفخامة بالراحة
+          {t('hero.subtitle')}
         </motion.p>
         <motion.p
           initial={{ opacity: 0, y: 20 }}
@@ -102,7 +104,7 @@ export default function Hero({ whatsappNumber, whatsappMessage }) {
           transition={{ duration: 0.8, delay: 0.75 }}
           className="text-base text-stone-200 max-w-xl mx-auto mb-10"
         >
-          مشروع سكني فاخر يوفر أرقى مستويات المعيشة في قلب الراكة، الخبر — وحدات متنوعة تناسب كل احتياج
+          {t('hero.description')}
         </motion.p>
 
         {/* Stats bar */}
@@ -110,14 +112,14 @@ export default function Hero({ whatsappNumber, whatsappMessage }) {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.85 }}
-          className="flex justify-center gap-8 mb-10"
+          className="flex justify-center gap-6 sm:gap-8 flex-wrap mb-10"
         >
           {[
-            { value: '20', label: 'وحدة سكنية' },
-            { value: '4', label: 'طوابق' },
-            { value: '١٠٠٪', label: 'تشطيب فاخر' },
+            { value: t('hero.stat_units_val'), label: t('hero.stat_units_lbl') },
+            { value: t('hero.stat_floors_val'), label: t('hero.stat_floors_lbl') },
+            { value: t('hero.stat_finish_val'), label: t('hero.stat_finish_lbl') },
           ].map((stat) => (
-            <div key={stat.label} className="text-center">
+            <div key={stat.label} className="text-center px-2">
               <div className="text-2xl font-black text-white">{stat.value}</div>
               <div className="text-xs text-stone-200">{stat.label}</div>
             </div>
@@ -135,7 +137,7 @@ export default function Hero({ whatsappNumber, whatsappMessage }) {
             onClick={() => document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' })}
             className="w-full sm:w-auto bg-[#4B2E2B] text-white hover:bg-white hover:text-[#4B2E2B] font-black text-base px-8 py-4 rounded-full transition-all duration-300 hover:shadow-2xl hover:shadow-gold-500/40 hover:-translate-y-0.5 active:scale-95"
           >
-            احجز الآن
+            {t('nav.book_now')}
           </button>
           <a
             href={`https://wa.me/${whatsappNumber}?text=${whatsappMessage}`}
@@ -146,7 +148,7 @@ export default function Hero({ whatsappNumber, whatsappMessage }) {
             <svg viewBox="0 0 24 24" className="w-5 h-5 fill-white">
               <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
             </svg>
-            تواصل واتساب
+            {t('hero.btn_whatsapp')}
           </a>
         </motion.div>
       </div>
@@ -158,9 +160,9 @@ export default function Hero({ whatsappNumber, whatsappMessage }) {
         animate={{ opacity: 1 }}
         transition={{ delay: 1.5 }}
         className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-stone-400 hover:text-gold-400 transition-colors"
-        aria-label="اكتشف المزيد"
+        aria-label="Discover More"
       >
-        <span className="text-xs tracking-widest">اكتشف المزيد</span>
+        <span className="text-xs tracking-widest">{t('hero.scroll_more')}</span>
         <motion.div animate={{ y: [0, 6, 0] }} transition={{ duration: 1.5, repeat: Infinity }}>
           <ChevronDown size={20} />
         </motion.div>

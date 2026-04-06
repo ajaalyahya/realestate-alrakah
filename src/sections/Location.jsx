@@ -4,14 +4,15 @@ import { useScrollAnimation } from '../hooks/useScrollAnimation'
 import { staggerContainer, fadeInUp, scaleIn } from '../utils/animations'
 import SectionTitle from '../components/SectionTitle'
 import { MapPin } from 'lucide-react'
+import { useLanguage } from '../context/LanguageContext'
 
-const nearbyServices = [
-  { icon: '🛒', title: 'مراكز التسوق', desc: 'مول الخبر على بُعد 11 دقيقة' },
-  { icon: '🏥', title: 'المستشفى', desc: 'مباشرة أمام المستشفى، بموقع مميز وسهل الوصول.'  },
-  { icon: '🏫', title: 'المدارس', desc: 'أفضل المدارس الدولية في محيط المشروع' },
-  { icon: '🕌', title: 'المساجد', desc: 'عدة مساجد داخل الحي في مسافة قريبة' },
-  { icon: '🌊', title: 'الكورنيش', desc: 'كورنيش الخبر على بُعد 7 دقائق سيارة' },
-  { icon: '✈️', title: 'المطار', desc: 'مطار الدمام الدولي على بُعد 40 دقيقة' },
+const getNearbyServices = (t) => [
+  { icon: '🛒', title: t('loc.s1_title'), desc: t('loc.s1_desc') },
+  { icon: '🏥', title: t('loc.s2_title'), desc: t('loc.s2_desc') },
+  { icon: '🏫', title: t('loc.s3_title'), desc: t('loc.s3_desc') },
+  { icon: '🕌', title: t('loc.s4_title'), desc: t('loc.s4_desc') },
+  { icon: '🌊', title: t('loc.s5_title'), desc: t('loc.s5_desc') },
+  { icon: '✈️', title: t('loc.s6_title'), desc: t('loc.s6_desc') },
 ]
 
 // Approximate coords for Al Rakah, Al Khobar
@@ -20,8 +21,10 @@ const MAP_LNG = 50.1583
 
 export default function Location() {
   const { ref, isInView } = useScrollAnimation()
+  const { t } = useLanguage()
+  const nearbyServices = getNearbyServices(t)
 
- const mapSrc = `https://maps.google.com/maps?q=26.35122785547548,50.20700881277218&z=15&output=embed`;
+  const mapSrc = `https://maps.google.com/maps?q=26.35122785547548,50.20700881277218&z=15&output=embed`;
 
   return (
     <section id="location" className="py-24 sm:py-32 bg-[#FFF8F0] relative overflow-hidden">
@@ -35,9 +38,9 @@ export default function Location() {
           animate={isInView ? 'visible' : 'hidden'}
         >
           <SectionTitle
-            eyebrow="الموقع"
-            title="في قلب الراكة، الخبر"
-            subtitle="موقع استراتيجي يمنحك سهولة الوصول إلى كافة الخدمات والمرافق الضرورية"
+            eyebrow={t('loc.eyebrow')}
+            title={t('loc.title')}
+            subtitle={t('loc.subtitle')}
           />
 
           <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-start">
@@ -45,7 +48,7 @@ export default function Location() {
             <motion.div variants={scaleIn} className="relative">
               <div className="rounded-3xl overflow-hidden border border-white/8 shadow-2xl shadow-black/60 aspect-[4/3]">
                 <iframe
-                  title="موقع برج الراقي"
+                  title={t('loc.title')}
                   src={mapSrc}
                   width="100%"
                   height="100%"
@@ -56,11 +59,11 @@ export default function Location() {
                 />
               </div>
               {/* Address pill */}
-              <div className="absolute -bottom-4 right-6 glass-dark flex items-center gap-2.5 px-4 py-3 rounded-2xl shadow-xl">
+              <div className="absolute -bottom-4 bg-stone-900/90 backdrop-blur-md border border-white/10 flex items-center gap-2.5 px-4 py-3 rounded-2xl shadow-xl z-10" style={{insetInlineEnd: '1.5rem', right: 'auto', insetInlineStart: 'auto'}}>
                 <MapPin size={16} className="text-gold-400 flex-shrink-0" />
                 <div>
-                  <div className="text-white text-sm font-bold leading-tight">حي الراكة، الخبر</div>
-                  <div className="text-stone-400 text-xs">المنطقة الشرقية، المملكة العربية السعودية</div>
+                  <div className="text-white text-sm font-bold leading-tight">{t('loc.map_title')}</div>
+                  <div className="text-stone-400 text-xs mt-0.5">{t('loc.map_sub')}</div>
                 </div>
               </div>
             </motion.div>
@@ -68,7 +71,7 @@ export default function Location() {
             {/* Nearby services */}
             <div className="pt-4">
               <motion.h3 variants={fadeInUp} className="text-xl font-bold text-[#4B2E2B] mb-6">
-                الخدمات القريبة
+                {t('loc.services_title')}
               </motion.h3>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 {nearbyServices.map((service) => (
@@ -97,8 +100,8 @@ export default function Location() {
                 className="inline-flex items-center gap-2 mt-7 text-gold-400 hover:text-gold-300 font-semibold text-sm transition-colors group"
               >
                 <MapPin size={16} />
-                <span>افتح في خرائط جوجل</span>
-                <svg className="w-4 h-4 rotate-180 group-hover:-translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <span>{t('loc.open_maps')}</span>
+                <svg className="w-4 h-4 rtl:-scale-x-100 group-hover:-translate-x-1  rtl:group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                 </svg>
               </motion.a>

@@ -6,41 +6,42 @@ import SectionTitle from '../components/SectionTitle'
 import rakSal from '../../src/assets/images/rakSal.png'
 import rakBed from '../../src/assets/images/rakBed.png'
 import rakKat from '../../src/assets/images/rakKit.png'
+import { useLanguage } from '../context/LanguageContext'
 
-const units = [
+const getUnits = (t) => [
   {
     id: 'studio',
-    type: 'صالة المعيشة',
-    badge: 'مساحة رحبة',
+    type: t('units.studio_type'),
+    badge: t('units.studio_badge'),
     badgeColor: 'bg-blue-500/20 text-blue-300 border-blue-500/30',
-    desc: ' مساحة واسعة بتصميم عصري وإضاءة مريحة.',
-    features: [' توزيع عملي وسهل التأثيث', 'أرضيات سيراميك أنيقة', 'إضاءة طبيعية جيدة', 'نافذة بانورامية'],
+    desc: t('units.studio_desc'),
+    features: [t('units.studio_f1'), t('units.studio_f2'), t('units.studio_f3'), t('units.studio_f4')],
     img: rakSal,
     available: 8,
   },
   {
     id: 'one-bedroom',
-    type: 'مطبخ مستقل ',
-    badge: 'مطبخ عملي',
+    type: t('units.onebed_type'),
+    badge: t('units.onebed_badge'),
     badgeColor: 'bg-gold-500/20 text-gold-300 border-gold-500/30',
-    desc: 'مطبخ حديث بتصميم عملي يناسب الاستخدام اليومي. ',
-    features: ['مساحات تخزين مناسبة', 'توزيع مريح للحركة', 'مطبخ مفتوح', 'سهل التنظيف والصيانة'],
+    desc: t('units.onebed_desc'),
+    features: [t('units.onebed_f1'), t('units.onebed_f2'), t('units.onebed_f3'), t('units.onebed_f4')],
     img: rakKat,
     available: 12,
   },
   {
     id: 'two-bedroom',
-    type: 'غرفة النوم',
-    badge: 'هدوء واسترخاء',
+    type: t('units.twobed_type'),
+    badge: t('units.twobed_badge'),
     badgeColor: 'bg-green-500/20 text-green-300 border-green-500/30',
-    desc: 'غرفة مريحة بتصميم مودرن توفر أجواء هادئة.',
-    features: ['مساحة مناسبة للاثاث', 'قابلة لتنسيق تسريحة وخزائن ', 'إضاءة جيدة وتهوية مناسبة '],
+    desc: t('units.twobed_desc'),
+    features: [t('units.twobed_f1'), t('units.twobed_f2'), t('units.twobed_f3')],
     img: rakBed,
     available: 6,
   },
 ]
 
-function UnitCard({ unit, index }) {
+function UnitCard({ unit, index, t }) {
   const { ref, isInView } = useScrollAnimation(0.1)
 
   return (
@@ -64,13 +65,13 @@ function UnitCard({ unit, index }) {
         <div className="absolute inset-0 bg-gradient-to-t from-stone-950/80 via-stone-950/20 to-transparent" />
 
         {/* Badge */}
-        <div className={`absolute top-4 right-4 text-xs font-bold px-3 py-1.5 rounded-full border backdrop-blur-sm ${unit.badgeColor}`}>
+        <div className={`absolute top-4 right-4 text-xs font-bold px-3 py-1.5 rounded-full border backdrop-blur-sm ${unit.badgeColor}`} style={{insetInlineEnd: '1rem', right: 'auto', insetInlineStart: 'auto'}}>
           {unit.badge}
         </div>
 
         {/* Available units */}
-        <div className="absolute bottom-4 left-4 glass-dark text-xs text-stone-300 px-3 py-1.5 rounded-full">
-          متاح: <span className="text-gold-400 font-bold">{unit.available}</span> وحدة
+        <div className="absolute bottom-4 left-4 glass-dark text-xs text-stone-300 px-3 py-1.5 rounded-full" style={{insetInlineStart: '1rem', left: 'auto', insetInlineEnd: 'auto'}}>
+          {t('units.available')} <span className="text-gold-400 font-bold">{unit.available}</span> {t('units.unit_word')}
         </div>
       </div>
 
@@ -81,7 +82,7 @@ function UnitCard({ unit, index }) {
             <h3 className="text-xl font-black text-[#4B2E2B] group-hover:text-gold-400 transition-colors">
               {unit.type}
             </h3>
-            <p className="text-gold-400 font-bold text-base mt-0.5">{unit.area}</p>
+            {unit.area && <p className="text-gold-400 font-bold text-base mt-0.5">{unit.area}</p>}
           </div>
         </div>
 
@@ -92,13 +93,10 @@ function UnitCard({ unit, index }) {
           {unit.features.map((f) => (
             <div key={f} className="flex items-center gap-2">
               <div className="w-1.5 h-1.5 rounded-full bg-gold-500 flex-shrink-0" />
-              <span className="text-xs text-stone-400">{f}</span>
+              <span className="text-xs text-stone-400 text-start">{f}</span>
             </div>
           ))}
         </div>
-
-        {/* CTA */}
-        
       </div>
     </motion.div>
   )
@@ -106,6 +104,8 @@ function UnitCard({ unit, index }) {
 
 export default function Units() {
   const { ref, isInView } = useScrollAnimation()
+  const { t } = useLanguage()
+  const units = getUnits(t)
 
   return (
     <section id="units" className="py-24 sm:py-32 bg-[#FFF8F0] relative overflow-hidden">
@@ -119,23 +119,24 @@ export default function Units() {
           animate={isInView ? 'visible' : 'hidden'}
         >
           <SectionTitle
-            eyebrow="الوحدات السكنية"
-            title="اختر وحدتك المثالية"
-            subtitle="تفاصيل مدروسة وتصاميم عصرية تمنحك تجربة سكن مريحة وعملية في كل زاوية"
+            eyebrow={t('units.eyebrow')}
+            title={t('units.title')}
+            subtitle={t('units.subtitle')}
           />
         </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 mt-12">
           {units.map((unit, i) => (
-            <UnitCard key={unit.id} unit={unit} index={i} />
+            <UnitCard key={unit.id} unit={unit} index={i} t={t} />
           ))}
         </div>
 
         {/* Bottom note */}
         <button
           onClick={() => document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' })}
-          className="block mx-auto mt-6 px-6 py-3 bg-gold-500/10 hover:bg-gold-500 text-gold-400 hover:text-stone-950 border border-gold-500/30 hover:border-gold-500 font-bold text-sm rounded-2xl transition-all duration-300"        >
-          استفسر عن الوحدات السكنية
+          className="block mx-auto mt-12 px-6 py-3 bg-gold-500/10 hover:bg-gold-500 text-gold-400 hover:text-stone-950 border border-gold-500/30 hover:border-gold-500 font-bold text-sm rounded-2xl transition-all duration-300"
+        >
+          {t('units.inquire_btn')}
         </button>
         <motion.p
           initial={{ opacity: 0 }}
@@ -144,7 +145,7 @@ export default function Units() {
           transition={{ delay: 0.4 }}
           className="text-center text-stone-500 text-sm mt-6"
         >
-          * الأسعار قابلة للتفاوض • تواصل معنا للحصول على أفضل عرض
+          {t('units.note')}
         </motion.p>
       </div>
     </section>
