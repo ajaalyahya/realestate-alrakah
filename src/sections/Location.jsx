@@ -27,7 +27,7 @@ export default function Location() {
   const mapSrc = `https://maps.google.com/maps?q=26.35122785547548,50.20700881277218&z=15&output=embed`;
 
   return (
-    <section id="location" className="py-24 sm:py-32 bg-[#FFF8F0] relative overflow-hidden">
+    <section id="location" className="py-24 sm:py-32 bg-[#ECE7D1] relative overflow-hidden">
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_right,_rgba(200,168,32,0.05)_0%,_transparent_60%)] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
@@ -59,7 +59,7 @@ export default function Location() {
                 />
               </div>
               {/* Address pill */}
-              <div className="absolute -bottom-4 bg-stone-900/90 backdrop-blur-md border border-white/10 flex items-center gap-2.5 px-4 py-3 rounded-2xl shadow-xl z-10" style={{insetInlineEnd: '1.5rem', right: 'auto', insetInlineStart: 'auto'}}>
+              <div className="absolute -bottom-4 bg-stone-900/90 backdrop-blur-md border border-white/10 flex items-center gap-2.5 px-4 py-3 rounded-2xl shadow-xl z-10" style={{ insetInlineEnd: '1.5rem', right: 'auto', insetInlineStart: 'auto' }}>
                 <MapPin size={16} className="text-gold-400 flex-shrink-0" />
                 <div>
                   <div className="text-white text-sm font-bold leading-tight">{t('loc.map_title')}</div>
@@ -94,7 +94,7 @@ export default function Location() {
               {/* Open in maps CTA */}
               <motion.a
                 variants={fadeInUp}
-                href={`https://www.google.com/maps?q=${MAP_LAT},${MAP_LNG}`}
+                href={`https://maps.app.goo.gl/EDEQYFN6xjwD3kGa8`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 mt-7 text-gold-400 hover:text-gold-300 font-semibold text-sm transition-colors group"

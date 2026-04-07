@@ -65,14 +65,10 @@ function UnitCard({ unit, index, t }) {
         <div className="absolute inset-0 bg-gradient-to-t from-stone-950/80 via-stone-950/20 to-transparent" />
 
         {/* Badge */}
-        <div className={`absolute top-4 right-4 text-xs font-bold px-3 py-1.5 rounded-full border backdrop-blur-sm ${unit.badgeColor}`} style={{insetInlineEnd: '1rem', right: 'auto', insetInlineStart: 'auto'}}>
+        <div className={`absolute top-4 right-4 text-xs font-bold px-3 py-1.5 rounded-full border backdrop-blur-sm ${unit.badgeColor}`} style={{ insetInlineEnd: '1rem', right: 'auto', insetInlineStart: 'auto' }}>
           {unit.badge}
         </div>
 
-        {/* Available units */}
-        <div className="absolute bottom-4 left-4 glass-dark text-xs text-stone-300 px-3 py-1.5 rounded-full" style={{insetInlineStart: '1rem', left: 'auto', insetInlineEnd: 'auto'}}>
-          {t('units.available')} <span className="text-gold-400 font-bold">{unit.available}</span> {t('units.unit_word')}
-        </div>
       </div>
 
       {/* Content */}
@@ -108,7 +104,7 @@ export default function Units() {
   const units = getUnits(t)
 
   return (
-    <section id="units" className="py-24 sm:py-32 bg-[#FFF8F0] relative overflow-hidden">
+    <section id="units" className="py-24 sm:py-32 bg-[#ECE7D1] relative overflow-hidden">
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-gold-500/3 rounded-full blur-3xl pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6">

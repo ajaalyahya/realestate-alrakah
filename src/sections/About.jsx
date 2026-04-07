@@ -11,10 +11,14 @@ export default function About() {
   const { t } = useLanguage()
 
   const highlights = [
-    { icon: '🏙️', label: t('about.feature1_label'), desc: t('about.feature1_desc') },
-    { icon: '🏥', label: t('about.feature2_label'), desc: t('about.feature2_desc') },
-    { icon: '🌿', label: t('about.feature3_label'), desc: t('about.feature3_desc') },
-    { icon: '✨', label: t('about.feature4_label'), desc: t('about.feature4_desc') },
+    { icon: '🏥', label: t('about.feature1_label'), desc: t('about.feature1_desc') },
+    { icon: '✨', label: t('about.feature2_label'), desc: t('about.feature2_desc') },
+    { icon: '🏢✨', label: t('features.f6_title'), desc: t('features.f6_desc') },
+    { icon: '🏢', label: t('features.f2_title'), desc: t('features.f2_desc') },
+    { icon: '🏢🛏️', label: t('features.f1_title'), desc: t('features.f1_desc') },
+    { icon: '🛗', label: t('features.f4_title'), desc: t('features.f4_desc') },
+    { icon: '🅿️', label: t('features.f3_title'), desc: t('features.f3_desc') },
+
   ]
 
   return (
@@ -60,7 +64,7 @@ export default function About() {
               className="absolute -top-4 -left-4 sm:-left-8 glass-dark rounded-2xl p-4 shadow-2xl"
               style={{ insetInlineStart: '-2rem', left: 'auto' }}
             >
-              <div className="text-2xl font-black text-gold-400">20</div>
+              <div className="text-2xl font-black text-gold-400">8</div>
               <div className="text-xs text-stone-400">{t('about.badge_units')}</div>
             </motion.div>
           </motion.div>
@@ -75,9 +79,6 @@ export default function About() {
             />
             <motion.p variants={fadeInUp} className="text-[#4B2E2B] text-base sm:text-lg leading-relaxed mb-6">
               {t('about.p1')}
-            </motion.p>
-            <motion.p variants={fadeInUp} className="text-stone-400 text-base leading-relaxed mb-10">
-              {t('about.p2')}
             </motion.p>
 
             {/* Highlights grid */}

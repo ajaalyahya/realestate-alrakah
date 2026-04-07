@@ -100,7 +100,7 @@ export default function Contact() {
   ]
 
   return (
-    <section id="contact" className="py-24 sm:py-32 bg-[#ECE7D1] relative overflow-hidden">
+    <section id="contact" className="py-24 sm:py-32 bg-[#FFF8F0] relative overflow-hidden">
       <div className={`absolute top-0 w-[600px] h-[400px] bg-gold-500/4 rounded-full blur-3xl translate-x-1/3 -translate-y-1/3 pointer-events-none ${language === 'en' ? 'right-auto left-0 -translate-x-1/3' : 'right-0'}`} />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6">

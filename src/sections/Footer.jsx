@@ -6,7 +6,6 @@ import { useLanguage } from '../context/LanguageContext'
 
 const getFooterLinks = (t) => [
   { label: t('nav.about'), href: '#about' },
-  { label: t('nav.features'), href: '#features' },
   { label: t('nav.units'), href: '#units' },
   { label: t('nav.gallery'), href: '#gallery' },
   { label: t('nav.location'), href: '#location' },
@@ -68,7 +67,7 @@ export default function Footer() {
             <h4 className="text-sm font-bold text-[#4B2E2B] mb-5 tracking-wide">{t('footer.contact_title')}</h4>
             <ul className="space-y-3">
               <li>
-                <a href="tel:+966500000000" className="text-stone-500 hover:text-gold-400 text-sm transition-colors flex items-center gap-2 w-fit" dir="ltr">
+                <a href="tel:+966534118777" className="text-stone-500 hover:text-gold-400 text-sm transition-colors flex items-center gap-2 w-fit" dir="ltr">
                   <span>📞</span>
                   <span>+966 53 411 8777</span>
                 </a>

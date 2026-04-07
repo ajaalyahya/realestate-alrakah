@@ -10,7 +10,6 @@ export default function Navbar() {
 
   const navLinks = [
     { label: t('nav.about'), href: '#about' },
-    { label: t('nav.features'), href: '#features' },
     { label: t('nav.units'), href: '#units' },
     { label: t('nav.gallery'), href: '#gallery' },
     { label: t('nav.location'), href: '#location' },
@@ -71,12 +70,12 @@ export default function Navbar() {
               <span className="mb-0.5">{language === 'ar' ? 'EN' : 'عربي'}</span>
             </button>
             <a
-              href="tel:+966500000000"
+              href="tel:+966534118777"
               className="flex items-center gap-2 text-sm text-white font-semibold hover:text-gold-300 transition-colors ms-3"
             >
               <Phone size={15} />
               <span className="dir-ltr inline-block text-left whitespace-nowrap">
-                +966 53 411 8777
+                0534118777
               </span>
             </a>
             <button
@@ -127,12 +126,12 @@ export default function Navbar() {
                 </button>
               ))}
               <a
-                href="tel:+966500000000"
+                href="tel:+966534118777"
                 className="flex items-center gap-2 text-base text-white font-semibold py-3 border-b border-white/5 transition-colors"
               >
                 <Phone size={16} className="text-gold-400" />
                 <span className="dir-ltr text-left">
-                  +966 53 411 8777
+                  0534118777
                 </span>
               </a>
               <button
