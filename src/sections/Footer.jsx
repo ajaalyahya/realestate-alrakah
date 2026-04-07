@@ -25,7 +25,7 @@ export default function Footer() {
 
   return (
     <footer className="bg-[#FFF8F0] border-t border-white/5 pt-16 pb-8">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 text-center sm:text-start">
         <motion.div
           ref={ref}
           variants={staggerContainer}
@@ -34,21 +34,30 @@ export default function Footer() {
           className="grid sm:grid-cols-2 lg:grid-cols-4 gap-10 mb-14"
         >
           {/* Brand */}
-          <motion.div variants={fadeInUp} className="lg:col-span-1">
+          <motion.div
+            variants={fadeInUp}
+            className="lg:col-span-1 flex flex-col items-center sm:items-start"
+          >
             <div className="mb-4">
-              <span className="text-3xl font-black text-[#C08552]">{t('footer.brand')}</span>
-              <div className="text-xs text-stone-500 tracking-widest mt-1">{t('footer.sub')}</div>
+              <span className="text-3xl font-black text-[#C08552]">
+                {t('footer.brand')}
+              </span>
+              <div className="text-xs text-stone-500 tracking-widest mt-1">
+                {t('footer.sub')}
+              </div>
             </div>
-            <p className="text-stone-500 text-sm leading-relaxed mb-5">
+
+            <p className="text-stone-500 text-sm leading-relaxed mb-5 max-w-xs sm:max-w-none">
               {t('footer.desc')}
             </p>
-            
           </motion.div>
 
           {/* Quick links */}
           <motion.div variants={fadeInUp}>
-            <h4 className="text-sm font-bold text-[#4B2E2B] mb-5 tracking-wide">{t('footer.links_title')}</h4>
-            <ul className="space-y-3">
+            <h4 className="text-sm font-bold text-[#4B2E2B] mb-5 tracking-wide">
+              {t('footer.links_title')}
+            </h4>
+            <ul className="space-y-3 flex flex-col items-center sm:items-start">
               {footerLinks.map((link) => (
                 <li key={link.href}>
                   <button
@@ -64,16 +73,27 @@ export default function Footer() {
 
           {/* Contact */}
           <motion.div variants={fadeInUp}>
-            <h4 className="text-sm font-bold text-[#4B2E2B] mb-5 tracking-wide">{t('footer.contact_title')}</h4>
-            <ul className="space-y-3">
+            <h4 className="text-sm font-bold text-[#4B2E2B] mb-5 tracking-wide">
+              {t('footer.contact_title')}
+            </h4>
+            <ul className="space-y-3 flex flex-col items-center sm:items-start">
               <li>
-                <a href="tel:+966534118777" className="text-stone-500 hover:text-gold-400 text-sm transition-colors flex items-center gap-2 w-fit" dir="ltr">
+                <a
+                  href="tel:+966534118777"
+                  className="text-stone-500 hover:text-gold-400 text-sm transition-colors flex items-center justify-center sm:justify-start gap-2 w-fit mx-auto sm:mx-0"
+                  dir="ltr"
+                >
                   <span>📞</span>
                   <span>+966 53 411 8777</span>
                 </a>
               </li>
               <li>
-                <a href="https://wa.me/966534118777" target="_blank" rel="noopener noreferrer" className="text-stone-500 hover:text-gold-400 text-sm transition-colors flex items-center gap-2 w-fit">
+                <a
+                  href="https://wa.me/966534118777"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-stone-500 hover:text-gold-400 text-sm transition-colors flex items-center justify-center sm:justify-start gap-2 w-fit mx-auto sm:mx-0"
+                >
                   <span>💬</span>
                   <span>{t('footer.wa')}</span>
                 </a>
@@ -83,9 +103,11 @@ export default function Footer() {
 
           {/* Address */}
           <motion.div variants={fadeInUp}>
-            <h4 className="text-sm font-bold text-[#4B2E2B] mb-5 tracking-wide">{t('footer.loc_title')}</h4>
-            <address className="not-italic">
-              <p className="text-stone-500 text-sm leading-relaxed mb-3">
+            <h4 className="text-sm font-bold text-[#4B2E2B] mb-5 tracking-wide">
+              {t('footer.loc_title')}
+            </h4>
+            <address className="not-italic flex flex-col items-center sm:items-start">
+              <p className="text-stone-500 text-sm leading-relaxed mb-3 max-w-xs sm:max-w-none">
                 {t('footer.loc_p1')}<br />
                 {t('footer.loc_p2')}<br />
                 {t('footer.loc_p3')}<br />
@@ -95,14 +117,15 @@ export default function Footer() {
                 href="https://maps.app.goo.gl/jQzRZibrya6AUQGLA"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-[#C08552] hover:text-gold-300 text-xs font-semibold transition-colors flex items-center gap-1 w-fit"
+                className="text-[#C08552] hover:text-gold-300 text-xs font-semibold transition-colors flex items-center justify-center sm:justify-start gap-1 w-fit mx-auto sm:mx-0"
               >
-                {language === 'ar' ? '📍 عرض على الخريطة ←' : '📍 View on Map →'}
+                {language === 'ar'
+                  ? '📍 عرض على الخريطة ←'
+                  : '📍 View on Map →'}
               </a>
             </address>
           </motion.div>
         </motion.div>
-
       </div>
     </footer>
   )
