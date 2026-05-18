@@ -13,7 +13,6 @@ export default function Navbar() {
     { label: t('nav.units'), href: '#units' },
     { label: t('nav.gallery'), href: '#gallery' },
     { label: t('nav.location'), href: '#location' },
-    { label: t('nav.contact'), href: '#contact' },
   ]
 
   useEffect(() => {
@@ -43,7 +42,7 @@ export default function Navbar() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 flex items-center justify-between">
           {/* Logo */}
           <a href="#hero" onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }) }} className="flex flex-col items-center">
-            <span className="text-2xl font-black text-[#C08552] leading-none">{t('nav.logo_title')}</span>
+            <span className="text-2xl font-black text-white leading-none">{t('nav.logo_title')}</span>
             <span className="text-[10px] text-white tracking-widest mt-0.5">{t('nav.logo_subtitle')}</span>
           </a>
 
@@ -80,7 +79,7 @@ export default function Navbar() {
             </a>
             <button
               onClick={() => handleNavClick('#contact')}
-              className="bg-[#4B2E2B] hover:bg-gold-400 text-white font-bold text-sm px-5 py-2.5 rounded-full transition-all duration-200 hover:shadow-lg hover:shadow-gold-500/30"
+              className="bg-[#171717] hover:bg-gold-400 text-white font-bold text-sm px-5 py-2.5 rounded-full transition-all duration-200 hover:shadow-lg hover:shadow-gold-500/30"
             >
               {t('nav.book_now')}
             </button>

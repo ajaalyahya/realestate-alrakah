@@ -38,7 +38,7 @@ export default function CTA({ whatsappNumber, whatsappMessage }) {
 
           <motion.h2 variants={fadeInUp} className="text-4xl sm:text-6xl lg:text-7xl font-black leading-tight mb-6">
             <span className="text-white">{t('cta.title1')}</span>
-            <span className="text-[#C08552]">{t('cta.title_highlight')}</span>
+            <span className="text-[#525252]">{t('cta.title_highlight')}</span>
             <br />
             <span className="text-white">{t('cta.title2')}</span>
           </motion.h2>
@@ -51,7 +51,7 @@ export default function CTA({ whatsappNumber, whatsappMessage }) {
           <motion.div variants={fadeInUp} className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <button
               onClick={() => document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' })}
-              className="w-full sm:w-auto bg-[#4B2E2B] hover:bg-gold-400 text-white font-black text-lg px-10 py-5 rounded-full transition-all duration-300 hover:shadow-2xl hover:shadow-gold-500/40 hover:-translate-y-1 active:scale-95"
+              className="w-full sm:w-auto bg-[#171717] hover:bg-gold-400 text-white font-black text-lg px-10 py-5 rounded-full transition-all duration-300 hover:shadow-2xl hover:shadow-gold-500/40 hover:-translate-y-1 active:scale-95"
             >
               {t('cta.btn_book')}
             </button>

@@ -86,7 +86,7 @@ export default function Hero({ whatsappNumber, whatsappMessage }) {
           className="text-5xl sm:text-7xl lg:text-8xl font-black leading-none mb-4"
         >
           <span className="text-white">{t('hero.title1')}</span>{' '}
-          <span className="text-[#C08552]">{t('hero.title2')}</span>
+          <span className="text-white">{t('hero.title2')}</span>
         </motion.h1>
 
         {/* Subtitle */}
@@ -135,7 +135,7 @@ export default function Hero({ whatsappNumber, whatsappMessage }) {
         >
           <button
             onClick={() => document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' })}
-            className="w-full sm:w-auto bg-[#4B2E2B] text-white hover:bg-white hover:text-[#4B2E2B] font-black text-base px-8 py-4 rounded-full transition-all duration-300 hover:shadow-2xl hover:shadow-gold-500/40 hover:-translate-y-0.5 active:scale-95"
+            className="w-full sm:w-auto bg-[#171717] text-white hover:bg-white hover:text-[#171717] font-black text-base px-8 py-4 rounded-full transition-all duration-300 hover:shadow-2xl hover:shadow-gold-500/40 hover:-translate-y-0.5 active:scale-95"
           >
             {t('nav.book_now')}
           </button>

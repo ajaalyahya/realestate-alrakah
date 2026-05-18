@@ -46,7 +46,7 @@ export default function Features() {
                 <div className="text-3xl sm:text-4xl mb-3 group-hover:scale-110 transition-transform duration-300 inline-block">
                   {feature.icon}
                 </div>
-                <h3 className="text-sm sm:text-base font-bold text-[#4B2E2B] mb-1.5 group-hover:text-gold-400 transition-colors">
+                <h3 className="text-sm sm:text-base font-bold text-[#171717] mb-1.5 group-hover:text-gold-400 transition-colors">
                   {feature.title}
                 </h3>
                 <p className="text-xs sm:text-sm text-stone-500 leading-relaxed">

@@ -32,8 +32,8 @@ export default function App() {
         <Units />
         <Gallery />
         <Location />
-        <Contact />
-        <CTA whatsappNumber={WHATSAPP_NUMBER} whatsappMessage={WHATSAPP_MESSAGE} />
+        {/* <Contact /> */}
+        {/* <CTA whatsappNumber={WHATSAPP_NUMBER} whatsappMessage={WHATSAPP_MESSAGE} /> */}
         <Footer />
       </Suspense>
       <FloatingWhatsApp number={WHATSAPP_NUMBER} message={WHATSAPP_MESSAGE} />

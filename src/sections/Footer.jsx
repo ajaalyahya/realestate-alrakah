@@ -24,7 +24,7 @@ export default function Footer() {
   const footerLinks = getFooterLinks(t)
 
   return (
-    <footer className="bg-[#FFF8F0] border-t border-white/5 pt-16 pb-8">
+    <footer className="bg-[#F5F5F5] border-t border-white/5 pt-16 pb-8">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 text-center sm:text-start">
         <motion.div
           ref={ref}
@@ -39,7 +39,7 @@ export default function Footer() {
             className="lg:col-span-1 flex flex-col items-center sm:items-start"
           >
             <div className="mb-4">
-              <span className="text-3xl font-black text-[#C08552]">
+              <span className="text-3xl font-black text-[#525252]">
                 {t('footer.brand')}
               </span>
               <div className="text-xs text-stone-500 tracking-widest mt-1">
@@ -54,7 +54,7 @@ export default function Footer() {
 
           {/* Quick links */}
           <motion.div variants={fadeInUp}>
-            <h4 className="text-sm font-bold text-[#4B2E2B] mb-5 tracking-wide">
+            <h4 className="text-sm font-bold text-[#171717] mb-5 tracking-wide">
               {t('footer.links_title')}
             </h4>
             <ul className="space-y-3 flex flex-col items-center sm:items-start">
@@ -73,7 +73,7 @@ export default function Footer() {
 
           {/* Contact */}
           <motion.div variants={fadeInUp}>
-            <h4 className="text-sm font-bold text-[#4B2E2B] mb-5 tracking-wide">
+            <h4 className="text-sm font-bold text-[#171717] mb-5 tracking-wide">
               {t('footer.contact_title')}
             </h4>
             <ul className="space-y-3 flex flex-col items-center sm:items-start">
@@ -103,7 +103,7 @@ export default function Footer() {
 
           {/* Address */}
           <motion.div variants={fadeInUp}>
-            <h4 className="text-sm font-bold text-[#4B2E2B] mb-5 tracking-wide">
+            <h4 className="text-sm font-bold text-[#171717] mb-5 tracking-wide">
               {t('footer.loc_title')}
             </h4>
             <address className="not-italic flex flex-col items-center sm:items-start">
@@ -117,7 +117,7 @@ export default function Footer() {
                 href="https://maps.app.goo.gl/jQzRZibrya6AUQGLA"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-[#C08552] hover:text-gold-300 text-xs font-semibold transition-colors flex items-center justify-center sm:justify-start gap-1 w-fit mx-auto sm:mx-0"
+                className="text-[#525252] hover:text-gold-300 text-xs font-semibold transition-colors flex items-center justify-center sm:justify-start gap-1 w-fit mx-auto sm:mx-0"
               >
                 {language === 'ar'
                   ? '📍 عرض على الخريطة ←'

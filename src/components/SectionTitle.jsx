@@ -10,11 +10,11 @@ export default function SectionTitle({ eyebrow, title, subtitle, light = false }
           {eyebrow}
         </span>
       )}
-      <h2 className={`text-3xl sm:text-4xl lg:text-5xl font-black leading-tight mb-4 ${light ? 'text-[#4B2E2B]' : 'text-[#4B2E2B]'}`}>
+      <h2 className={`text-3xl sm:text-4xl lg:text-5xl font-black leading-tight mb-4 ${light ? 'text-[#171717]' : 'text-[#171717]'}`}>
         {title}
       </h2>
       {subtitle && (
-        <p className={`text-base sm:text-lg max-w-2xl mx-auto leading-relaxed ${light ? 'text-[#C08552]' : 'text-[#C08552]'}`}>
+        <p className={`text-base sm:text-lg max-w-2xl mx-auto leading-relaxed ${light ? 'text-[#525252]' : 'text-[#525252]'}`}>
           {subtitle}
         </p>
       )}

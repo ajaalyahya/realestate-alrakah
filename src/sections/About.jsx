@@ -22,7 +22,7 @@ export default function About() {
   ]
 
   return (
-    <section id="about" className="py-24 sm:py-32 bg-[#FFF8F0] relative overflow-hidden">
+    <section id="about" className="py-24 sm:py-32 bg-[#F5F5F5] relative overflow-hidden">
       {/* Background decoration */}
       <div className="absolute top-0 left-0 w-96 h-96 bg-gold-500/3 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2 pointer-events-none" />
       <div className="absolute bottom-0 right-0 w-80 h-80 bg-gold-500/3 rounded-full blur-3xl translate-x-1/3 translate-y-1/3 pointer-events-none" />
@@ -77,7 +77,7 @@ export default function About() {
               subtitle={null}
               className="text-blue"
             />
-            <motion.p variants={fadeInUp} className="text-[#4B2E2B] text-base sm:text-lg leading-relaxed mb-6">
+            <motion.p variants={fadeInUp} className="text-[#171717] text-base sm:text-lg leading-relaxed mb-6">
               {t('about.p1')}
             </motion.p>
 
@@ -90,7 +90,7 @@ export default function About() {
                   className="glass rounded-2xl p-4 hover:border-gold-500/30 transition-colors group"
                 >
                   <div className="text-2xl mb-2">{item.icon}</div>
-                  <div className="text-sm font-bold text-[#4B2E2B] group-hover:text-gold-400 transition-colors">{item.label}</div>
+                  <div className="text-sm font-bold text-[#171717] group-hover:text-gold-400 transition-colors">{item.label}</div>
                   <div className="text-xs text-stone-500 mt-1">{item.desc}</div>
                 </motion.div>
               ))}

@@ -34,7 +34,7 @@ function validate(values, t) {
   return errors
 }
 
-const inputBase = 'w-full bg-[#FFF8F0] border border-white/8 text-[#4B2E2B] placeholder-stone-600 rounded-2xl px-5 py-4 text-sm font-medium transition-all duration-200 focus:border-gold-500 outline-none'
+const inputBase = 'w-full bg-[#F5F5F5] border border-white/8 text-[#171717] placeholder-stone-600 rounded-2xl px-5 py-4 text-sm font-medium transition-all duration-200 focus:border-gold-500 outline-none'
 const inputError = 'border-red-500/60 focus:border-red-500'
 
 export default function Contact() {
@@ -100,7 +100,7 @@ export default function Contact() {
   ]
 
   return (
-    <section id="contact" className="py-24 sm:py-32 bg-[#FFF8F0] relative overflow-hidden">
+    <section id="contact" className="py-24 sm:py-32 bg-[#F5F5F5] relative overflow-hidden">
       <div className={`absolute top-0 w-[600px] h-[400px] bg-gold-500/4 rounded-full blur-3xl translate-x-1/3 -translate-y-1/3 pointer-events-none ${language === 'en' ? 'right-auto left-0 -translate-x-1/3' : 'right-0'}`} />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
@@ -114,7 +114,7 @@ export default function Contact() {
               {status === 'success' ? (
                 <motion.div initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} className="glass rounded-3xl p-10 text-center">
                   <CheckCircle size={56} className="text-green-400 mx-auto mb-4" />
-                  <h3 className="text-2xl font-black text-[#4B2E2B] mb-2">{t('contact.success_title')}</h3>
+                  <h3 className="text-2xl font-black text-[#171717] mb-2">{t('contact.success_title')}</h3>
                   <p className="text-stone-500 mb-6">{t('contact.success_desc')}</p>
                   <button onClick={() => setStatus('idle')} className="text-gold-500 hover:text-gold-600 font-semibold text-sm">{t('contact.send_another')}</button>
                 </motion.div>
@@ -130,38 +130,38 @@ export default function Contact() {
 
                   {/* Name */}
                   <div>
-                    <label className="text-sm font-semibold text-[#4B2E2B] mb-2 block">{t('contact.name_lbl')} <span className="text-[#4B2E2B]">*</span></label>
+                    <label className="text-sm font-semibold text-[#171717] mb-2 block">{t('contact.name_lbl')} <span className="text-[#171717]">*</span></label>
                     <input type="text" name="name" value={form.name} onChange={handleChange} onBlur={handleBlur} placeholder={t('contact.name_ph')} className={`${inputBase} ${errors.name ? inputError : ''}`} />
                     {errors.name && <p className="flex items-center gap-1.5 text-red-500 text-xs mt-1.5"><AlertCircle size={12} />{errors.name}</p>}
                   </div>
 
                   {/* Phone */}
                   <div>
-                    <label className="text-sm font-semibold text-[#4B2E2B] mb-2 block">{t('contact.phone_lbl')} <span className="text-[#4B2E2B]">*</span></label>
+                    <label className="text-sm font-semibold text-[#171717] mb-2 block">{t('contact.phone_lbl')} <span className="text-[#171717]">*</span></label>
                     <input type="tel" name="phone" value={form.phone} onChange={handleChange} onBlur={handleBlur} placeholder={t('contact.phone_ph')} dir="ltr" className={`${inputBase} ${language === 'en' ? 'text-left' : 'text-right'} ${errors.phone ? inputError : ''}`} />
                     {errors.phone && <p className="flex items-center gap-1.5 text-red-500 text-xs mt-1.5"><AlertCircle size={12} />{errors.phone}</p>}
                   </div>
 
                   {/* Unit Type */}
                   <div>
-                    <label className="text-sm font-semibold text-[#4B2E2B] mb-2 block">{t('contact.unit_lbl')} <span className="text-[#4B2E2B]">*</span></label>
-                    <select name="unitType" value={form.unitType} onChange={handleChange} onBlur={handleBlur} className={`${inputBase} cursor-pointer min-h-12 border-white/20 bg-[#FFF8F0]/50 appearance-none ${errors.unitType ? inputError : ''}`}>
-                      {unitOptions.map(opt => <option key={opt.value} value={opt.value} disabled={opt.value === ''} className="bg-white text-[#C08552]">{opt.label}</option>)}
+                    <label className="text-sm font-semibold text-[#171717] mb-2 block">{t('contact.unit_lbl')} <span className="text-[#171717]">*</span></label>
+                    <select name="unitType" value={form.unitType} onChange={handleChange} onBlur={handleBlur} className={`${inputBase} cursor-pointer min-h-12 border-white/20 bg-[#F5F5F5]/50 appearance-none ${errors.unitType ? inputError : ''}`}>
+                      {unitOptions.map(opt => <option key={opt.value} value={opt.value} disabled={opt.value === ''} className="bg-white text-[#525252]">{opt.label}</option>)}
                     </select>
                     {errors.unitType && <p className="flex items-center gap-1.5 text-red-500 text-xs mt-1.5"><AlertCircle size={12} />{errors.unitType}</p>}
                   </div>
 
                   {/* Message */}
                   <div>
-                    <label className="text-sm font-semibold text-[#4B2E2B] mb-2 block">{t('contact.msg_lbl')} <span className="text-[#4B2E2B]">*</span></label>
+                    <label className="text-sm font-semibold text-[#171717] mb-2 block">{t('contact.msg_lbl')} <span className="text-[#171717]">*</span></label>
                     <textarea name="message" value={form.message} onChange={handleChange} onBlur={handleBlur} rows={4} placeholder={t('contact.msg_ph')} className={`${inputBase} resize-none ${errors.message ? inputError : ''}`} />
                     {errors.message && <p className="flex items-center gap-1.5 text-red-500 text-xs mt-1.5"><AlertCircle size={12} />{errors.message}</p>}
                   </div>
 
                   {/* Submit */}
-                  <button type="submit" disabled={status === 'loading'} className="w-full flex items-center justify-center gap-3 bg-[#4B2E2B] hover:bg-gold-400 disabled:opacity-60 disabled:cursor-not-allowed text-white font-black text-base py-4 rounded-2xl transition-all duration-300 hover:shadow-xl hover:shadow-gold-500/30 hover:-translate-y-0.5 active:scale-95">
+                  <button type="submit" disabled={status === 'loading'} className="w-full flex items-center justify-center gap-3 bg-[#171717] hover:bg-gold-400 disabled:opacity-60 disabled:cursor-not-allowed text-white font-black text-base py-4 rounded-2xl transition-all duration-300 hover:shadow-xl hover:shadow-gold-500/30 hover:-translate-y-0.5 active:scale-95">
                     {status === 'loading'
-                      ? <><div className="w-5 h-5 border-2 border-white/30 border-t-[#C08552] rounded-full animate-spin" />{t('contact.sending')}</>
+                      ? <><div className="w-5 h-5 border-2 border-white/30 border-t-[#525252] rounded-full animate-spin" />{t('contact.sending')}</>
                       : <><Send size={18} className={language === 'ar' ? 'rotate-180' : ''}/>{t('contact.submit_btn')}</>
                     }
                   </button>
@@ -172,7 +172,7 @@ export default function Contact() {
             {/* Contact Info */}
             <motion.div variants={fadeInUp} className="lg:col-span-2 flex flex-col gap-5">
               <div className="glass rounded-3xl p-6">
-                <h4 className="text-lg font-bold text-[#4B2E2B] mb-5">{t('contact.info_title')}</h4>
+                <h4 className="text-lg font-bold text-[#171717] mb-5">{t('contact.info_title')}</h4>
                 <div className="space-y-4">
                   {contactInfos.map(item => (
                     <div key={item.label} className="flex items-start gap-3">
@@ -180,8 +180,8 @@ export default function Contact() {
                       <div>
                         <div className="text-xs text-stone-500 mb-0.5">{item.label}</div>
                         {item.href
-                          ? <a href={item.href} className="text-sm text-[#4B2E2B] font-bold hover:text-gold-500 transition-colors" dir={item.label !== t('contact.address') ? 'ltr' : (language === 'ar' ? 'rtl' : 'ltr')}>{item.value}</a>
-                          : <span className="text-sm text-[#4B2E2B] font-bold">{item.value}</span>}
+                          ? <a href={item.href} className="text-sm text-[#171717] font-bold hover:text-gold-500 transition-colors" dir={item.label !== t('contact.address') ? 'ltr' : (language === 'ar' ? 'rtl' : 'ltr')}>{item.value}</a>
+                          : <span className="text-sm text-[#171717] font-bold">{item.value}</span>}
                       </div>
                     </div>
                   ))}
@@ -189,7 +189,7 @@ export default function Contact() {
               </div>
 
               <div className="glass rounded-3xl p-6">
-                <h4 className="text-base font-bold text-[#4B2E2B] mb-4">{t('contact.hours_title')}</h4>
+                <h4 className="text-base font-bold text-[#171717] mb-4">{t('contact.hours_title')}</h4>
                 <div className="flex justify-between text-sm">
                   <span className="text-stone-500">{t('contact.hours_days')}</span>
                   <span className="text-gold-500 font-bold">{t('contact.hours_time')}</span>

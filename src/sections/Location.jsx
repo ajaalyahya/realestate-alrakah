@@ -70,7 +70,7 @@ export default function Location() {
 
             {/* Nearby services */}
             <div className="pt-4">
-              <motion.h3 variants={fadeInUp} className="text-xl font-bold text-[#4B2E2B] mb-6">
+              <motion.h3 variants={fadeInUp} className="text-xl font-bold text-[#171717] mb-6">
                 {t('loc.services_title')}
               </motion.h3>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -84,7 +84,7 @@ export default function Location() {
                       {service.icon}
                     </div>
                     <div>
-                      <div className="text-sm font-bold text-[#4B2E2B] mb-0.5">{service.title}</div>
+                      <div className="text-sm font-bold text-[#171717] mb-0.5">{service.title}</div>
                       <div className="text-xs text-stone-500">{service.desc}</div>
                     </div>
                   </motion.div>

@@ -75,7 +75,7 @@ function UnitCard({ unit, index, t }) {
       <div className="p-6 flex flex-col flex-1">
         <div className="flex items-start justify-between mb-3">
           <div>
-            <h3 className="text-xl font-black text-[#4B2E2B] group-hover:text-gold-400 transition-colors">
+            <h3 className="text-xl font-black text-[#171717] group-hover:text-gold-400 transition-colors">
               {unit.type}
             </h3>
             {unit.area && <p className="text-gold-400 font-bold text-base mt-0.5">{unit.area}</p>}
